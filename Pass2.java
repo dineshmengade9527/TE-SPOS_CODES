@@ -90,8 +90,6 @@ public class Pass2 {
 									machine_code_file.write(littab[add-1][1]);
 						
 						}
-						
-						
 						if (sCurrentLine.split("\t")[3].equals("S")) {
 							int add1 = Integer.parseInt(sCurrentLine.split("\t")[4]);
 							int i = 1;
@@ -108,9 +106,6 @@ public class Pass2 {
 						machine_code_file.write("0\t000");
 					}
 				}
-
-				
-				
 				//DRY RUN is a must
 				
 				if (s0.equals("AD")) {			
@@ -144,16 +139,11 @@ public class Pass2 {
 							j++;
 						}
 					}
-				}
-				
-				
-				
+				}	
 				if(s0.equals("DL")&&s1.equals("01")){		//if it is DC stmt
 					machine_code_file.write("00\t0\t00"+sCurrentLine.split("'")[1]);
 					
 				}
-				
-				
 				
 				locptr++;
 				machine_code_file.write("\n");
