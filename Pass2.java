@@ -14,16 +14,16 @@ public class Pass2 {
 
 		try {
 			
-			String f = "C:\\Users\\Pallavi\\Downloads\\Assembler P2\\INPUT\\IC.txt";
+			String f = "IC.txt";
 			FileReader fw = new FileReader(f);
 			BufferedReader IC_file = new BufferedReader(fw);
 
-			String f1 = "C:\\Users\\Pallavi\\Downloads\\Assembler P2\\INPUT\\SYMTAB.txt";
+			String f1 = "SYMTAB.txt";
 			FileReader fw1 = new FileReader(f1);
 			BufferedReader symtab_file = new BufferedReader(fw1);
 			symtab_file.mark(500);
 
-			String f2 = "C:\\Users\\Pallavi\\Downloads\\Assembler P2\\INPUT\\LITTAB.txt";
+			String f2 = "LITTAB.txt";
 			FileReader fw2 = new FileReader(f2);
 			BufferedReader littab_file = new BufferedReader(fw2);
 			littab_file.mark(500);
@@ -43,11 +43,11 @@ public class Pass2 {
 				symtab.put(str.split("\t")[0], str.split("\t")[1]);
 			}
 
-			String f3 = "C:\\Users\\Pallavi\\Downloads\\Assembler P2\\INPUT\\POOLTAB.txt";
+			String f3 = "POOLTAB.txt";
 			FileReader fw3 = new FileReader(f3);
 			BufferedReader pooltab_file = new BufferedReader(fw3);
 
-			String f4 = "C:\\Users\\Pallavi\\Downloads\\Assembler P2\\OUTPUT\\MACHINE_CODE.txt";
+			String f4 = "MACHINE_CODE.txt";
 			FileWriter fw4 = new FileWriter(f4);
 			BufferedWriter machine_code_file = new BufferedWriter(fw4);
 
