@@ -1,0 +1,104 @@
+
+//=======================================================RR==========================================================================
+
+import java.util.*;
+
+public class myRR {
+	public static void main(String args[]) {
+		int count, time, remain, flag = 0, time_quantum = 0;
+		int wait_time = 0, turnaround_time = 0;
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter no of process: ");
+		int n = sc.nextInt();
+		remain = n;
+
+		int at[] = new int[n];
+		int bt[] = new int[n];
+		int rt[] = new int[n];
+
+		for (int i = 0; i < n; i++) {
+			System.out.println("enter process " + (i + 1) + " arrival time: ");
+			at[i] = sc.nextInt();
+			System.out.println("enter process " + (i + 1) + " brust time: ");
+			bt[i] = sc.nextInt();
+			rt[i] = bt[i];
+		}
+
+		System.out.println("enter quantum: ");
+		time_quantum = sc.nextInt();
+
+		System.out.println("\n\nProcess\t|Turnaround Time|Waiting Time\n\n");
+		for (time = 0, count = 0; remain != 0;) {
+
+			//purna execute karun taak
+			if (rt[count] <= time_quantum && rt[count] > 0) {
+				time += rt[count];
+				rt[count] = 0;
+				flag = 1;
+
+			} else if (rt[count] > 0) {
+				rt[count] -= time_quantum;
+				time += time_quantum;
+
+			}
+			if (rt[count] == 0 && flag == 1) {
+				remain--;						///reduce the number of remaining processes
+									//process id 		//turnaround time=ct - at				//waiting time=tt - bt
+				System.out.println((count + 1) + "\t " + (time - at[count]) + "\t\t " + (time - at[count] - bt[count]));
+				wait_time += time - at[count] - bt[count];
+				turnaround_time += time - at[count];
+				flag = 0;
+
+			}
+			if (count == n - 1)
+				count = 0;
+			else if (at[count + 1] <= time)
+				count++;
+			else
+				count = 0;
+		}
+
+		System.out.println("\nAverage Waiting Time= \n" + wait_time * 1.0 / n);
+		System.out.println("Avg Turnaround Time = " + turnaround_time * 1.0 / n);
+
+	}
+}
+/*enter no of process: 
+5
+enter process 1 arrival time: 
+0
+enter process 1 brust time: 
+10
+enter process 2 arrival time: 
+1
+enter process 2 brust time: 
+1
+enter process 3 arrival time: 
+2
+enter process 3 brust time: 
+2
+enter process 4 arrival time: 
+3
+enter process 4 brust time: 
+1
+enter process 5 arrival time: 
+4
+enter process 5 brust time: 
+5
+enter quantum: 
+1
+
+
+Process	|Turnaround Time|Waiting Time
+2	 1		 0
+4	 1		 0
+3	 5		 3
+5	 10		 5
+1	 19		 9
+
+Average Waiting Time= 
+3.4
+Avg Turnaround Time = 7.2
+
+ */
