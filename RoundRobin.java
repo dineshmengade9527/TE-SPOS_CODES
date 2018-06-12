@@ -1,6 +1,10 @@
-//Program for Round Robin Scheduling Preemptive algorithm.
+//Program for Round Robin Scheduling Preemptive using queue Data structure algorithm.
 import java.util.Scanner;
- 
+
+class Queue{
+    int front,rear;
+    int arr[];
+}
 public class RoundRobin {
         
     public static void main(String args[]) {
